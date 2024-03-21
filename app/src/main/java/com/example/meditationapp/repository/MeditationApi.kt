@@ -8,5 +8,5 @@ import retrofit2.http.GET
 
 interface MeditationApi {
     @GET("feelings")
-    fun getFeelings() : ApiResponse
+    suspend fun getFeelings() : ApiResponse
 }

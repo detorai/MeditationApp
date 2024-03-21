@@ -92,7 +92,7 @@ class MainFragment : Fragment() {
                     println("Ошибка при получении данных.")
                 }
             } catch (e: Exception) {
-                println("Произошла ошибка: ${e.message}")
+                Log.d("My Error","Произошла ошибка: ${e.message}")
             }
         }
  }
