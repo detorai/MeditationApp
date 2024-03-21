@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height = "wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="#253334"
+    tools:context=".MainFragment">
+
+<!--header-->
+    <ImageView
+        android:id="@+id/btnMenu"
+        android:layout_width="23dp"
+        android:layout_height="18dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="345dp"
+        android:layout_marginBottom="753dp"
+        android:src="@drawable/hamburger"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="45.39dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="733dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sendProfile"
+        android:layout_width="36.6dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="309dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="746dp"
+        android:src="@drawable/ellipse2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--welcome text-->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="670dp"
+        android:fontFamily="@font/alegreya"
+        android:text="С возвращением, Эмиль!"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.161" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="337dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="624dp"
+        android:fontFamily="@font/alegreya_regular"
+        android:text="Каким ты себя ощущаешь сегодня?"
+        android:textAllCaps="false"
+        android:textColor="#bec2c2"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--feelings-->
+    <!--infoblocks-->
+
+<!--firstBLOCK-->
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbars="none">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <!--спокойное-->
+
+            <ImageView
+                android:id="@+id/feeling1"
+                android:layout_width="62dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="299dp"
+                android:layout_marginBottom="528dp"
+                android:src="@drawable/rectangle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageForFeeling1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="14dp"
+                app:layout_constraintStart_toStartOf="@+id/feeling1"
+                app:layout_constraintTop_toTopOf="@+id/feeling1" />
+
+            <TextView
+                android:id="@+id/textForFeeling1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="70dp"
+                android:text="Спокойным"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Расслабленное-->
+
+
+            <ImageView
+                android:id="@+id/feeling2"
+                android:layout_width="62dp"
+                android:layout_height="65dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="125dp"
+                android:layout_marginEnd="211dp"
+                android:layout_marginBottom="528dp"
+                android:src="@drawable/rectangle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/imageForFeeling2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/relax"
+                app:layout_constraintStart_toStartOf="@+id/feeling2"
+                app:layout_constraintTop_toTopOf="@+id/feeling2" />
+
+            <TextView
+                android:id="@+id/textForFeeling2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="117dp"
+                android:layout_marginTop="70dp"
+                android:text="Расслабленным"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Сосредоточенное-->
+
+            <ImageView
+                android:id="@+id/feeling3"
+                android:layout_width="62dp"
+                android:layout_height="65dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="216dp"
+                android:layout_marginEnd="115dp"
+                android:layout_marginBottom="528dp"
+                android:src="@drawable/rectangle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textForFeeling3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="204dp"
+                android:layout_marginTop="70dp"
+                android:text="Сосредоточенным"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageForFeeling3"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/vector"
+                app:layout_constraintStart_toStartOf="@+id/feeling3"
+                app:layout_constraintTop_toTopOf="@+id/feeling3" />
+
+            <!--Уставшим-->
+
+
+            <ImageView
+                android:id="@+id/feeling4"
+                android:layout_width="62dp"
+                android:layout_height="65dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="308dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="528dp"
+                android:src="@drawable/rectangle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageForFeeling4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="15dp"
+                android:background="#253334"
+                android:src="@drawable/rectangle45"
+                app:layout_constraintStart_toStartOf="@+id/feeling4"
+                app:layout_constraintTop_toTopOf="@+id/feeling4" />
+
+            <TextView
+                android:id="@+id/textForFeeling4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="313dp"
+                android:layout_marginTop="70dp"
+                android:text="Уставшим"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+<!--Радостным-->
+
+            <ImageView
+                android:id="@+id/feeling5"
+                android:layout_width="62dp"
+                android:layout_height="65dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="393dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="528dp"
+                android:src="@drawable/rectangle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageForFeeling5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="15dp"
+                android:background="#253334"
+                android:src="@drawable/rectangle45"
+                app:layout_constraintStart_toStartOf="@+id/feeling5"
+                app:layout_constraintTop_toTopOf="@+id/feeling5" />
+
+            <TextView
+                android:id="@+id/textForFeeling5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="395dp"
+                android:layout_marginTop="70dp"
+                android:text="Радостным"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="339dp"
+        android:layout_height="165dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="344dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="320dp"
+        android:src="@drawable/rectangle2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView21"
+        android:layout_alignTop="@+id/imageView21"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alegreya_medium"
+        android:text="Заголовок блока"
+        android:textColor="#253334"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView19"
+        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="139dp"
+        android:layout_height="39dp"
+        android:layout_alignStart="@+id/imageView21"
+        android:layout_alignTop="@+id/imageView21"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/rectangle1"
+        android:text="подробнее"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/imageView19"
+        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="193dp"
+        android:layout_height="39dp"
+        android:layout_alignStart="@+id/imageView21"
+        android:layout_alignTop="@+id/imageView21"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:text="Кратенькое описание блока с двумя строчками"
+        android:textColor="#253334"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView19"
+        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+
+    <!--secondBLOCK-->
+
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="339dp"
+        android:layout_height="165dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="532dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="132dp"
+        android:src="@drawable/rectangle2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView19"
+        android:layout_alignTop="@+id/imageView19"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alegreya_medium"
+        android:text="Заголовок блока"
+        android:textColor="#253334"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView21"
+        app:layout_constraintTop_toTopOf="@+id/imageView21" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="188dp"
+        android:layout_height="38dp"
+        android:layout_alignStart="@+id/imageView19"
+        android:layout_alignTop="@+id/imageView19"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:text="Кратенькое описание блока с двумя строчками"
+        android:textColor="#253334"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView21"
+        app:layout_constraintStart_toStartOf="@+id/imageView21"
+        app:layout_constraintTop_toTopOf="@+id/imageView21" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="139dp"
+        android:layout_height="39dp"
+        android:layout_alignStart="@+id/imageView19"
+        android:layout_alignTop="@+id/imageView19"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/rectangle1"
+        android:text="подробнее"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/imageView21"
+        app:layout_constraintTop_toTopOf="@+id/imageView21" />
+
+
+    <!--navigation-->
+
+
+    <ImageView
+        android:id="@+id/main"
+        android:layout_width="28dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="740dp"
+        android:layout_marginEnd="294dp"
+        android:layout_marginBottom="59dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnListen"
+        android:layout_width="28dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="740dp"
+        android:layout_marginEnd="189dp"
+        android:layout_marginBottom="59dp"
+        android:src="@drawable/nav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn1Profile"
+        android:layout_width="28dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="282dp"
+        android:layout_marginTop="740dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="59dp"
+        android:src="@drawable/profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

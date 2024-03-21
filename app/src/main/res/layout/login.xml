@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#253334"
+    tools:context=".LoginFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="43.41dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="101dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="181dp"
+        android:fontFamily="@font/alegreya"
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="542dp"
+        android:text="Register"
+        android:fontFamily="@font/alegreya"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--Email-->
+
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="344dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="300dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:fontFamily="@font/alegreya"
+        android:textColorHint="#BEC2C2"
+        android:textColor="#BEC2C2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--password-->
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="344dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="365dp"
+        android:ems="10"
+        android:inputType="textVisiblePassword"
+        android:hint="Пароль"
+        android:fontFamily="@font/alegreya"
+        android:textColorHint="#BEC2C2"
+        android:textColor="#BEC2C2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--buttons-->
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="321dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="462dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/alegreya"
+        android:letterSpacing="0.08"
+        android:text="Sign in"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="321dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="594dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/alegreya"
+        android:letterSpacing="0.08"
+        android:text="Профиль"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/zadnik"
+        android:layout_width="446dp"
+        android:layout_height="269dp"
+        android:src="@drawable/group_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-27dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
