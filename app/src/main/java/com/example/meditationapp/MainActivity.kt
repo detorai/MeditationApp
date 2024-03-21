@@ -1,7 +1,6 @@
 package com.example.meditationapp
 
-/*import com.example.meditationapp.data.Product*/
-/*import com.example.meditationapp.repository.RetrofitRepository*/
+
 
 import android.os.Bundle
 import android.view.Window
@@ -9,7 +8,6 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.meditationapp.databinding.ActivityMainBinding
 
-@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding

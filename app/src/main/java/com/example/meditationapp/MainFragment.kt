@@ -13,14 +13,18 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.meditationapp.data.Feelings
 import com.example.meditationapp.databinding.MainBinding
+import com.example.meditationapp.repository.RetrofitClient
 import com.example.meditationapp.repository.RetrofitClient.service
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
+import java.lang.Exception
 import javax.security.auth.callback.Callback
 
 
@@ -34,39 +38,62 @@ class MainFragment : Fragment() {
     ): View? {
         binding = MainBinding.inflate(layoutInflater, container, false)
         return binding.root
+
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val feelings = mutableListOf<Feelings>()
 
-        service.getFeelings().enqueue(object : retrofit2.Callback<List<Feelings>> {
-            override fun onResponse(
-                call: Call<List<Feelings>>,
-                response: Response<List<Feelings>>
-            ) {
-                if (response.isSuccessful) {
-                    val feelingsList = response.body()
-                    if (!feelingsList.isNullOrEmpty()) {
-                        val imageIrl = feelingsList[0].image
-
-                        Picasso.get().load(imageIrl).into(binding.feeling1) // Загрузка и отображение изображения в ImageView
-                    }
-                    else {
-                        Log.e("API Error", "Failed to get feelings: ${response.code()}")
-
-                    }                            }
-            }
-
-            override fun onFailure(call: Call<List<Feelings>>, t: Throwable) {
-
-            }
-        })
         binding.btnMenu.setOnClickListener {
         }
         binding.btnListen.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_listenFragment)
+
+
         }
-
+        fetchDataAndUpdateUI()
     }
+    private fun fetchDataAndUpdateUI() {
+        GlobalScope.launch(Dispatchers.Main) {
+            try {
+                val response = RetrofitClient.service.getFeelings()
+                if (response.success) {
 
+                    val sortedData = response.data.sortedBy { it.position }
+
+                    sortedData.forEach { feeling ->
+                        when (feeling.position) {
+                            1 -> {
+                                binding.textForFeeling1.text = feeling.title
+                                Picasso.get().load(feeling.image).into(binding.imageForFeeling1)
+                            }
+
+                            2 -> {
+                                binding.textForFeeling2.text = feeling.title
+                                Picasso.get().load(feeling.image).into(binding.imageForFeeling2)
+                            }
+
+                            3 -> {
+                                binding.textForFeeling3.text = feeling.title
+                                Picasso.get().load(feeling.image).into(binding.imageForFeeling3)
+                            }
+
+                            4 -> {
+                                binding.textForFeeling4.text = feeling.title
+                                Picasso.get().load(feeling.image).into(binding.imageForFeeling4)
+                            }
+
+                            5 -> {
+                                binding.textForFeeling5.text = feeling.title
+                                Picasso.get().load(feeling.image).into(binding.imageForFeeling5)
+                            }
+                        }
+                    }
+                } else {
+                    println("Ошибка при получении данных.")
+                }
+            } catch (e: Exception) {
+                println("Произошла ошибка: ${e.message}")
+            }
+        }
+ }
 }
