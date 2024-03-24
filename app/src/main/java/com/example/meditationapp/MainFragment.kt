@@ -89,7 +89,28 @@ class MainFragment : Fragment() {
                         }
                     }
                 } else {
-                    println("Ошибка при получении данных.")
+                    Log.d("My Error","Ошибка при получении данных Feeling.")
+                }
+
+                val response1 = RetrofitClient.service.getQuotes()
+                if (response1.success) {
+                    for (quote in response1.data) {
+                        when (quote.id) {
+                            1 -> {
+                                binding.HB1.text = quote.title
+                                binding.ST1.text = quote.description
+                                Picasso.get().load(quote.image).into(binding.IFB1)
+                            }
+
+                            2 -> {
+                                binding.HB2.text = quote.title
+                                binding.ST2.text = quote.description
+                                Picasso.get().load(quote.image).into(binding.IFB2)
+                            }
+                        }
+                    }
+                } else {
+                    Log.d("My Error","Ошибка при получении данных Quotes.")
                 }
             } catch (e: Exception) {
                 Log.d("My Error","Произошла ошибка: ${e.message}")
