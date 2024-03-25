@@ -1,31 +1,18 @@
 package com.example.meditationapp
 
 import android.os.Bundle
-import android.support.annotation.UiThread
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.compose.runtime.currentRecomposeScope
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.meditationapp.data.Feelings
 import com.example.meditationapp.databinding.MainBinding
 import com.example.meditationapp.repository.RetrofitClient
-import com.example.meditationapp.repository.RetrofitClient.service
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Response
-import java.lang.Exception
-import javax.security.auth.callback.Callback
 
 
 class MainFragment : Fragment() {

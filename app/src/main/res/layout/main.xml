@@ -7,7 +7,7 @@
     android:background="#253334"
     tools:context=".MainFragment">
 
-<!--header-->
+    <!--header-->
 
     <ImageView
         android:id="@+id/btnMenu"
@@ -17,10 +17,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="345dp"
-        android:layout_marginBottom="753dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="52dp"
         android:src="@drawable/hamburger"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,13 +31,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="733dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--welcome text-->
 
     <ImageView
         android:id="@+id/sendProfile"
@@ -50,15 +48,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="309dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="47dp"
-        android:layout_marginBottom="746dp"
         android:src="@drawable/ellipse2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--welcome text-->
 
     <TextView
         android:id="@+id/textView"
@@ -84,6 +80,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.161" />
 
+    <!--feelings-->
+    <!--infoblocks-->
+
+    <!--firstBLOCK-->
+
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="337dp"
@@ -92,10 +94,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="624dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="164dp"
         android:fontFamily="@font/alegreya_regular"
         android:text="Каким ты себя ощущаешь сегодня?"
         android:textAllCaps="false"
@@ -103,12 +103,6 @@
         android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--feelings-->
-    <!--infoblocks-->
-
-<!--firstBLOCK-->
-
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -190,19 +184,19 @@
                 app:layout_constraintStart_toStartOf="@+id/feeling2"
                 app:layout_constraintTop_toTopOf="@+id/feeling2" />
 
+            <!--Сосредоточенное-->
+
             <TextView
                 android:id="@+id/textForFeeling2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="117dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginStart="116dp"
+                android:layout_marginTop="4dp"
                 android:text="Расслабленным"
                 android:textColor="@color/white"
                 android:textSize="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!--Сосредоточенное-->
+                app:layout_constraintTop_toBottomOf="@+id/feeling2" />
 
             <ImageView
                 android:id="@+id/feeling3"
@@ -283,7 +277,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--Радостным-->
+            <!--Радостным-->
 
             <ImageView
                 android:id="@+id/feeling5"
