@@ -2,15 +2,15 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/main"
         android:icon="@drawable/logo"
-        tools:ignore="MenuTitle" />
+        android:title="" />
     <item
-        android:id="@+id/message"
+        android:id="@+id/listening"
         android:icon="@drawable/nav"
-        tools:ignore="MenuTitle" />
+        android:title="" />
     <item
-        android:id="@+id/settings"
+        android:id="@+id/profile"
         android:icon="@drawable/profile"
-        tools:ignore="MenuTitle" />
+        android:title="" />
 </menu>

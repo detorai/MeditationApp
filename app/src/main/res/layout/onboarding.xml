@@ -9,39 +9,41 @@
 
 <!--welcome logo-->
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="204dp"
-        android:layout_height="200dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259" />
-
     <TextView
         android:id="@+id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="360dp"
         android:fontFamily="@font/alegreya_regular"
         android:text="ПРИВЕТ"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="34dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/couple_words"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="415dp"
+        android:layout_height="445dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.179" />
+
+    <!--clickable part-->
 
     <TextView
         android:id="@+id/couple_words"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
+        android:layout_marginBottom="280dp"
         android:fontFamily="@font/alegreya_regular"
         android:text="Наслаждайся отборочными.                                Будь внимателен.
                                                     Делай хорошо."
@@ -52,8 +54,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-<!--clickable part-->
 
     <Button
         android:id="@+id/SignInButton"

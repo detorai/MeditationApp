@@ -10,14 +10,14 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="282dp"
-        android:layout_height="256dp"
-        android:layout_marginTop="228dp"
+        android:layout_width="391dp"
+        android:layout_height="486dp"
+        android:layout_marginTop="168dp"
+        android:background="@android:color/transparent"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@android:color/transparent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
