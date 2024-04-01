@@ -19,6 +19,7 @@ class MainFragment : Fragment() {
 
     lateinit var binding: MainBinding
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,12 +32,12 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnMenu.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_menuFragment)
         }
-        binding.btnListen.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_listenFragment)
+       /* binding.sendProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_ProfileFragment)
+        }*/
 
-
-        }
         fetchDataAndUpdateUI()
     }
     private fun fetchDataAndUpdateUI() {
