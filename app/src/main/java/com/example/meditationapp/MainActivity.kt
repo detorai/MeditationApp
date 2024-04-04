@@ -3,8 +3,6 @@ package com.example.meditationapp
 
 
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.meditationapp.databinding.ActivityMainBinding
@@ -17,30 +15,33 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-        supportActionBar?.hide()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        loadFragment(MainFragment.newInstance())
+
         binding.bottomNavView.setOnClickListener {
-            when (it.id) {
+            item -> val fragment: Fragment
+            when (item.id) {
                 R.id.main -> {
-                    loadFragment(MainFragment())
+                    fragment = MainFragment()
+                    loadFragment(fragment)
                     true
                 }
                 R.id.listening -> {
-                    loadFragment(ListenFragment())
+                    fragment = ListenFragment()
+                    loadFragment(fragment)
                     true
                 }
+                else -> false
             }
         }
     }
-    fun loadFragment(fragment: Fragment) {
+    private fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.mainFragment, fragment)
+        transaction.replace(R.id.fragment_container, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }

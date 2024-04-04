@@ -56,6 +56,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--feelings-->
+    <!--infoblocks-->
+
+    <!--firstBLOCK-->
+
+
+
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -64,9 +72,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="118dp"
-        android:layout_marginEnd="34dp"
+        android:layout_marginEnd="42dp"
         android:layout_marginBottom="670dp"
         android:fontFamily="@font/alegreya"
         android:text="С возвращением, Эмиль!"
@@ -75,16 +83,10 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161" />
-
-    <!--feelings-->
-    <!--infoblocks-->
-
-    <!--firstBLOCK-->
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
@@ -94,8 +96,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="172dp"
         android:fontFamily="@font/alegreya_regular"
         android:text="Каким ты себя ощущаешь сегодня?"
         android:textAllCaps="false"
@@ -104,222 +106,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerForFeelings"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginEnd="4dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scrollbars="none">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <!--спокойное-->
-
-            <ImageView
-                android:id="@+id/feeling1"
-                android:layout_width="62dp"
-                android:layout_height="65dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="299dp"
-                android:layout_marginBottom="528dp"
-                android:src="@drawable/rectangle2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageForFeeling1"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="14dp"
-                app:layout_constraintStart_toStartOf="@+id/feeling1"
-                app:layout_constraintTop_toTopOf="@+id/feeling1" />
-
-            <TextView
-                android:id="@+id/textForFeeling1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="70dp"
-                android:text="Спокойным"
-                android:textColor="@color/white"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!--Расслабленное-->
-
-
-            <ImageView
-                android:id="@+id/feeling2"
-                android:layout_width="62dp"
-                android:layout_height="65dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="125dp"
-                android:layout_marginEnd="211dp"
-                android:layout_marginBottom="528dp"
-                android:src="@drawable/rectangle2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <ImageView
-                android:id="@+id/imageForFeeling2"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="14dp"
-                android:layout_marginBottom="15dp"
-                app:layout_constraintStart_toStartOf="@+id/feeling2"
-                app:layout_constraintTop_toTopOf="@+id/feeling2" />
-
-            <!--Сосредоточенное-->
-
-            <TextView
-                android:id="@+id/textForFeeling2"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="116dp"
-                android:layout_marginTop="4dp"
-                android:text="Расслабленным"
-                android:textColor="@color/white"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/feeling2" />
-
-            <ImageView
-                android:id="@+id/feeling3"
-                android:layout_width="62dp"
-                android:layout_height="65dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="216dp"
-                android:layout_marginEnd="115dp"
-                android:layout_marginBottom="528dp"
-                android:src="@drawable/rectangle2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textForFeeling3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="204dp"
-                android:layout_marginTop="70dp"
-                android:text="Сосредоточенным"
-                android:textColor="@color/white"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageForFeeling3"
-                android:layout_width="37dp"
-                android:layout_height="37dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="15dp"
-                app:layout_constraintStart_toStartOf="@+id/feeling3"
-                app:layout_constraintTop_toTopOf="@+id/feeling3" />
-
-            <!--Уставшим-->
-
-
-            <ImageView
-                android:id="@+id/feeling4"
-                android:layout_width="62dp"
-                android:layout_height="65dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="308dp"
-                android:layout_marginEnd="23dp"
-                android:layout_marginBottom="528dp"
-                android:src="@drawable/rectangle2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageForFeeling4"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="15dp"
-                app:layout_constraintStart_toStartOf="@+id/feeling4"
-                app:layout_constraintTop_toTopOf="@+id/feeling4" />
-
-            <TextView
-                android:id="@+id/textForFeeling4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="313dp"
-                android:layout_marginTop="70dp"
-                android:text="Уставшим"
-                android:textColor="@color/white"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!--Радостным-->
-
-            <ImageView
-                android:id="@+id/feeling5"
-                android:layout_width="62dp"
-                android:layout_height="65dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="393dp"
-                android:layout_marginEnd="23dp"
-                android:layout_marginBottom="528dp"
-                android:src="@drawable/rectangle2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageForFeeling5"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="15dp"
-                app:layout_constraintStart_toStartOf="@+id/feeling5"
-                app:layout_constraintTop_toTopOf="@+id/feeling5" />
-
-            <TextView
-                android:id="@+id/textForFeeling5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="395dp"
-                android:layout_marginTop="70dp"
-                android:text="Радостным"
-                android:textColor="@color/white"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </HorizontalScrollView>
+        app:layout_constraintVertical_bias="0.306"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_feelings" />
 
     <ImageView
         android:id="@+id/imageView19"
