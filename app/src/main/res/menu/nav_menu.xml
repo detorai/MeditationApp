@@ -2,11 +2,11 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/main"
+        android:id="@+id/mainFragment"
         android:icon="@drawable/logo"
         android:title="" />
     <item
-        android:id="@+id/listening"
+        android:id="@+id/listenFragment"
         android:icon="@drawable/nav"
         android:title="" />
     <item

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.meditationapp.data.FeelingsAdapter
 import com.example.meditationapp.databinding.MainBinding
 import com.example.meditationapp.repository.RetrofitClient
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -35,13 +36,12 @@ class MainFragment : Fragment() {
         binding = MainBinding.inflate(layoutInflater, container, false)
         return binding.root
 
-
-    }
-    companion object {
-        fun newInstance() = MainFragment()
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val view = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view)
+        view.visibility = View.VISIBLE
 
         binding.button.setOnClickListener{
             Toast.makeText( requireContext(),"Переход по ссылке", Toast.LENGTH_SHORT).show()
@@ -103,69 +103,5 @@ class MainFragment : Fragment() {
         }
     }
 }
-/*    private fun fetchDataAndUpdateUI() {
-        GlobalScope.launch(Dispatchers.Main) {
-            try {
-                val response = RetrofitClient.service.getFeelings()
-                if (response.success) {
 
-                    val sortedData = response.data.sortedBy { it.position }
-
-                    sortedData.forEach { feeling ->
-                        when (feeling.position) {
-                            1 -> {
-                                binding.textForFeeling1.text = feeling.title
-                                Picasso.get().load(feeling.image).into(binding.imageForFeeling1)
-                            }
-
-                            2 -> {
-                                binding.textForFeeling2.text = feeling.title
-                                Picasso.get().load(feeling.image).into(binding.imageForFeeling2)
-                            }
-
-                            3 -> {
-                                binding.textForFeeling3.text = feeling.title
-                                Picasso.get().load(feeling.image).into(binding.imageForFeeling3)
-                            }
-
-                            4 -> {
-                                binding.textForFeeling4.text = feeling.title
-                                Picasso.get().load(feeling.image).into(binding.imageForFeeling4)
-                            }
-
-                            5 -> {
-                                binding.textForFeeling5.text = feeling.title
-                                Picasso.get().load(feeling.image).into(binding.imageForFeeling5)
-                            }
-                        }
-                    }
-                } else {
-                    Log.d("My Error","Ошибка при получении данных Feeling.")
-                }
-
-                val response1 = RetrofitClient.service.getQuotes()
-                if (response1.success) {
-                    for (quote in response1.data) {
-                        when (quote.id) {
-                            1 -> {
-                                binding.HB1.text = quote.title
-                                binding.ST1.text = quote.description
-                                Picasso.get().load(quote.image).into(binding.IFB1)
-                            }
-
-                            2 -> {
-                                binding.HB2.text = quote.title
-                                binding.ST2.text = quote.description
-                                Picasso.get().load(quote.image).into(binding.IFB2)
-                            }
-                        }
-                    }
-                } else {
-                    Log.d("My Error","Ошибка при получении данных Quotes.")
-                }
-            } catch (e: Exception) {
-                Log.d("My Error","Произошла ошибка: ${e.message}")
-            }
-        }
- }*/
 

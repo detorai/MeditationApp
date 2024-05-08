@@ -3,47 +3,38 @@ package com.example.meditationapp
 
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import com.example.meditationapp.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
 
+        binding.bottomNavView.setOnItemSelectedListener {
 
-        loadFragment(MainFragment.newInstance())
-
-        binding.bottomNavView.setOnClickListener {
-            item -> val fragment: Fragment
-            when (item.id) {
-                R.id.main -> {
-                    fragment = MainFragment()
-                    loadFragment(fragment)
+            when(it.itemId){
+                R.id.mainFragment -> {
+                    Toast.makeText(baseContext, "Sample", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.mainFragment)
                     true
-                }
-                R.id.listening -> {
-                    fragment = ListenFragment()
-                    loadFragment(fragment)
+                }R.id.listenFragment -> {
+                    Toast.makeText(baseContext, "listen", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.listenFragment)
                     true
                 }
                 else -> false
             }
         }
-    }
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+        setContentView(binding.root)
     }
 }
 
