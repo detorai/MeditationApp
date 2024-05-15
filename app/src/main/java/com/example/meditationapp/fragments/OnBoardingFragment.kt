@@ -1,4 +1,4 @@
-package com.example.meditationapp
+package com.example.meditationapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.meditationapp.R
 import com.example.meditationapp.databinding.OnboardingBinding
 
 

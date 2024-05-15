@@ -1,4 +1,4 @@
-package com.example.meditationapp
+package com.example.meditationapp.fragments
 
 
 
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.example.meditationapp.R
 import com.example.meditationapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,9 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(baseContext, "Sample", Toast.LENGTH_SHORT).show()
                     navController.navigate(R.id.mainFragment)
                     true
-                }R.id.listenFragment -> {
+                }
+
+                R.id.listenFragment -> {
                     Toast.makeText(baseContext, "listen", Toast.LENGTH_SHORT).show()
                     navController.navigate(R.id.listenFragment)
                     true

@@ -1,4 +1,4 @@
-package com.example.meditationapp
+package com.example.meditationapp.fragments
 
 import androidx.fragment.app.Fragment
 

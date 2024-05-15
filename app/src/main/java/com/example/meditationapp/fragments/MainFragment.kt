@@ -1,4 +1,4 @@
-package com.example.meditationapp
+package com.example.meditationapp.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,9 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meditationapp.R
 import com.example.meditationapp.data.FeelingsAdapter
 import com.example.meditationapp.databinding.MainBinding
-import com.example.meditationapp.repository.RetrofitClient
+import com.example.meditationapp.network.RetrofitClient
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers

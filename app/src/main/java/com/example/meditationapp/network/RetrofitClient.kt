@@ -1,4 +1,4 @@
-package com.example.meditationapp.repository
+package com.example.meditationapp.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,6 +15,6 @@ object RetrofitClient {
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-    val service = retrofit.create(MeditationApi::class.java)
+    val service = retrofit.create(MeditationApiService::class.java)
  }
 

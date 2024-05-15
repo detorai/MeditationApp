@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.meditationapp.SplashScreenFragment"
+        android:name="com.example.meditationapp.fragments.SplashScreenFragment"
         android:label="splash_screen"
         tools:layout="@layout/splash_screen" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.example.meditationapp.OnBoardingFragment"
+        android:name="com.example.meditationapp.fragments.OnBoardingFragment"
         android:label="onboarding"
         tools:layout="@layout/onboarding" >
         <action
@@ -28,12 +28,12 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.meditationapp.RegisterFragment"
+        android:name="com.example.meditationapp.fragments.RegisterFragment"
         android:label="register"
         tools:layout="@layout/register" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.meditationapp.LoginFragment"
+        android:name="com.example.meditationapp.fragments.LoginFragment"
         android:label="login"
         tools:layout="@layout/login" >
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.meditationapp.MainFragment"
+        android:name="com.example.meditationapp.fragments.MainFragment"
         android:label="main"
         tools:layout="@layout/main" >
         <action
@@ -57,12 +57,12 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.meditationapp.MenuFragment"
+        android:name="com.example.meditationapp.fragments.MenuFragment"
         android:label="menu"
         tools:layout="@layout/menu" />
     <fragment
         android:id="@+id/listenFragment"
-        android:name="com.example.meditationapp.ListenFragment"
+        android:name="com.example.meditationapp.fragments.ListenFragment"
         android:label="listen"
         tools:layout="@layout/listen" />
 </navigation>
