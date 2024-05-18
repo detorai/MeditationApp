@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val loginViewModel: LoginViewModel by viewModels()
+        val loginViewModel: LoginViewModel by viewModels {LoginViewModel.Factory}
         var email = ""
         var password = ""
         binding.btnSignIn.setOnClickListener {
