@@ -1,6 +1,8 @@
 package com.example.meditationapp.repository
 
 import com.example.meditationapp.data.AuthUser
+import com.example.meditationapp.data.Feelings
+import com.example.meditationapp.data.Quotes
 import com.example.meditationapp.data.ResponseFeeling
 import com.example.meditationapp.data.ResponseWrapper
 import com.example.meditationapp.data.User
@@ -21,7 +23,7 @@ class MainRepository(val meditationApiService: MeditationApiService)  {
            emit(ResponseWrapper.Error(exception))
        }
     }
-    suspend fun getFeelings() : Flow<ResponseWrapper<ResponseFeeling>> = flow {
+    suspend fun getFeelings() : Flow<ResponseWrapper<List<Feelings>>> = flow {
         return@flow try {
             val feeling = meditationApiService.getFeelings().data
             emit(ResponseWrapper.Success(feeling))
@@ -29,6 +31,13 @@ class MainRepository(val meditationApiService: MeditationApiService)  {
             emit(ResponseWrapper.Error(e))
         }
     }
-
+    suspend fun getQuotes(): Flow<ResponseWrapper<List<Quotes>>> = flow {
+        return@flow try {
+            val quotes = meditationApiService.getQuotes().data
+            emit(ResponseWrapper.Success(quotes))
+        } catch (e: Exception){
+            emit(ResponseWrapper.Error(e))
+        }
+    }
 
 }

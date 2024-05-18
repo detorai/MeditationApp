@@ -53,47 +53,47 @@ class LoginFragment : Fragment() {
         binding.textRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
-        binding.btnSignIn.setOnClickListener {
-            if (email.isEmpty()) {
-
-                Toast.makeText(requireContext(), "Пожалуйста, введите Email", Toast.LENGTH_SHORT)
-                    .show()
-
-            } else if (!email.contains("@")) {
-
-                Toast.makeText(requireContext(), "Email введен неправильно", Toast.LENGTH_SHORT)
-                    .show()
-
-            } else if (password.isEmpty()) {
-
-                Toast.makeText(requireContext(), "Пожалуйста, введите пароль", Toast.LENGTH_SHORT)
-                    .show()
-
-            }
-            else {
+//        binding.btnSignIn.setOnClickListener {
+//            if (email.isEmpty()) {
 //
-//                loginViewModel.authorize()
-//                CoroutineScope(Dispatchers.IO).launch {
-//                    val user = RetrofitClient.service.auth(
-//                        AuthUser(
-//                            binding.email.text.toString(),
-//                            binding.password.text.toString()
-//                        )
-//                    )
-//                    val userRes = getUser(AuthUser("abc", "abc"))
-//                    when(userRes){
-//                        is ResponseWrapper.Error -> {
+//                Toast.makeText(requireContext(), "Пожалуйста, введите Email", Toast.LENGTH_SHORT)
+//                    .show()
 //
-//                        }
-//                        is ResponseWrapper.Success ->{
-//                            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+//            } else if (!email.contains("@")) {
 //
-//                        }
-//                    }
+//                Toast.makeText(requireContext(), "Email введен неправильно", Toast.LENGTH_SHORT)
+//                    .show()
 //
-//                }
-            }
-        }
+//            } else if (password.isEmpty()) {
+//
+//                Toast.makeText(requireContext(), "Пожалуйста, введите пароль", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//            }
+//            else {
+////
+////                loginViewModel.authorize()
+////                CoroutineScope(Dispatchers.IO).launch {
+////                    val user = RetrofitClient.service.auth(
+////                        AuthUser(
+////                            binding.email.text.toString(),
+////                            binding.password.text.toString()
+////                        )
+////                    )
+////                    val userRes = getUser(AuthUser("abc", "abc"))
+////                    when(userRes){
+////                        is ResponseWrapper.Error -> {
+////
+////                        }
+////                        is ResponseWrapper.Success ->{
+////                            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+////
+////                        }
+////                    }
+////
+////                }
+////            }
+//        }
     }
 }
 
