@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.meditationapp.R
 import com.example.meditationapp.ViewModel.LoginViewModel
@@ -37,13 +38,22 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val loginViewModel: LoginViewModel by viewModels()
-
+        var email = ""
+        var password = ""
+        binding.btnSignIn.setOnClickListener {
+            email = binding.email.text.toString()
+            password = binding.password.text.toString()
+            loginViewModel.setUser(email, password)
+        }
+        lifecycleScope.launch {
+            loginViewModel.authUser.collect{
+                Toast.makeText(requireContext(), "${it.email} ${it.password}", Toast.LENGTH_SHORT).show()
+            }
+        }
         binding.textRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
         binding.btnSignIn.setOnClickListener {
-            val email = binding.email.text.toString()
-            val password = binding.password.text.toString()
             if (email.isEmpty()) {
 
                 Toast.makeText(requireContext(), "Пожалуйста, введите Email", Toast.LENGTH_SHORT)
@@ -61,52 +71,31 @@ class LoginFragment : Fragment() {
 
             }
             else {
-
-                loginViewModel.authorize()
-                CoroutineScope(Dispatchers.IO).launch {
-                    val user = RetrofitClient.service.auth(
-                        AuthUser(
-                            binding.email.text.toString(),
-                            binding.password.text.toString()
-                        )
-                    )
-                    val userRes = getUser(AuthUser("abc", "abc"))
-                    when(userRes){
-                        is ResponseWrapper.Error -> {
-
-                        }
-                        is ResponseWrapper.Success ->{
-                            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-
-                        }
-                    }
-
-                }
+//
+//                loginViewModel.authorize()
+//                CoroutineScope(Dispatchers.IO).launch {
+//                    val user = RetrofitClient.service.auth(
+//                        AuthUser(
+//                            binding.email.text.toString(),
+//                            binding.password.text.toString()
+//                        )
+//                    )
+//                    val userRes = getUser(AuthUser("abc", "abc"))
+//                    when(userRes){
+//                        is ResponseWrapper.Error -> {
+//
+//                        }
+//                        is ResponseWrapper.Success ->{
+//                            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+//
+//                        }
+//                    }
+//
+//                }
             }
         }
     }
-
-
-    private suspend fun getUser(authUser:AuthUser): ResponseWrapper<User> {
-        val result = RetrofitClient.service.auth(authUser)
-        if (result.isSuccessful){
-            return ResponseWrapper.Success(result.body())
-        }
-        return  ResponseWrapper.Error(Exception())
-    }
 }
 
-    /*    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val product = RetrofitRepository.create()
-        val productAnswer = flow<List<Product>> {
-            emit(product.getProduct())
-        }
-        lifecycleScope.launch {
-            productAnswer.flowOn(Dispatchers.IO)
-                .collect{
-                    Toast.makeText(requireContext(), it.last().id, Toast.LENGTH_SHORT).show()
-                }
-        }
-    }*/
+
 

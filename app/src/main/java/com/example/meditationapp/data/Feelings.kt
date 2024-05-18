@@ -1,7 +1,7 @@
 package com.example.meditationapp.data
 
 
-data class ResponseFeeling(
+data class ResponseFeeling<T>(
     val success: Boolean,
     val data: List<Feelings>
 )
