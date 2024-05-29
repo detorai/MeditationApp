@@ -54,6 +54,9 @@
         <action
             android:id="@+id/action_mainFragment_to_listenFragment"
             app:destination="@id/listenFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -65,4 +68,9 @@
         android:name="com.example.meditationapp.fragments.ListenFragment"
         android:label="listen"
         tools:layout="@layout/listen" />
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.example.meditationapp.fragments.ProfileFragment"
+        android:label="profile"
+        tools:layout="@layout/profile" />
 </navigation>

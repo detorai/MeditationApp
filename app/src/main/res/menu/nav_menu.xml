@@ -10,7 +10,7 @@
         android:icon="@drawable/nav"
         android:title="" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/profile"
         android:title="" />
 </menu>

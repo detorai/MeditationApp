@@ -50,7 +50,9 @@ class MainFragment : Fragment() {
         binding.button2.setOnClickListener {
             Toast.makeText(requireContext(), "Переход по ссылке", Toast.LENGTH_SHORT).show()
         }
-
+        binding.sendProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_profileFragment2)
+        }
         binding.btnMenu.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_menuFragment)
         }

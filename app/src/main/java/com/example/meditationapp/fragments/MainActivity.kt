@@ -33,6 +33,11 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(baseContext, "listen", Toast.LENGTH_SHORT).show()
                     navController.navigate(R.id.listenFragment)
                     true
+
+                } R.id.profileFragment -> {
+                    Toast.makeText(baseContext, "listen", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.profileFragment)
+                    true
                 }
                 else -> false
             }
