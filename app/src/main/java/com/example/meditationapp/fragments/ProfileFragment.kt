@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meditationapp.data.PhotoAdapter
 import com.example.meditationapp.databinding.ProfileBinding
@@ -30,7 +29,6 @@ class ProfileFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.recyclerForPhoto
-        recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
         photoAdapter = PhotoAdapter(requireContext(),selectedImageUris)
         recyclerView.adapter=photoAdapter
 
