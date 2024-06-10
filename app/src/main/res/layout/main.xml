@@ -110,158 +110,28 @@
         android:id="@+id/recyclerForFeelings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="32dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306"
+        app:layout_constraintVertical_bias="0.378"
         tools:itemCount="1"
         tools:listitem="@layout/item_feelings" />
 
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="339dp"
-        android:layout_height="165dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="344dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="320dp"
-        android:src="@drawable/rectangle2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/HB1"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerForQuotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView21"
-        android:layout_alignTop="@+id/imageView21"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/alegreya_medium"
-        android:text="Заголовок блока"
-        android:textColor="#253334"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
-
-    <ImageView
-        android:id="@+id/IFB1"
-        android:layout_width="114dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="139dp"
-        android:layout_height="39dp"
-        android:layout_alignStart="@+id/imageView21"
-        android:layout_alignTop="@+id/imageView21"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="112dp"
-        android:background="@drawable/rectangle1"
-        android:text="подробнее"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
-
-    <TextView
-        android:id="@+id/ST1"
-        android:layout_width="193dp"
-        android:layout_height="39dp"
-        android:layout_alignStart="@+id/imageView21"
-        android:layout_alignTop="@+id/imageView21"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:text="Кратенькое описание блока с двумя строчками"
-        android:textColor="#253334"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
-
-    <!--secondBLOCK-->
-
-
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="339dp"
-        android:layout_height="165dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="532dp"
-        android:src="@drawable/rectangle2"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/HB2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView19"
-        android:layout_alignTop="@+id/imageView19"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/alegreya_medium"
-        android:text="Заголовок блока"
-        android:textColor="#253334"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView21"
-        app:layout_constraintTop_toTopOf="@+id/imageView21" />
-
-    <TextView
-        android:id="@+id/ST2"
-        android:layout_width="188dp"
-        android:layout_height="38dp"
-        android:layout_alignStart="@+id/imageView19"
-        android:layout_alignTop="@+id/imageView19"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:text="Кратенькое описание блока с двумя строчками"
-        android:textColor="#253334"
-        android:textSize="15dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView21"
-        app:layout_constraintStart_toStartOf="@+id/imageView21"
-        app:layout_constraintTop_toTopOf="@+id/imageView21" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="139dp"
-        android:layout_height="39dp"
-        android:layout_alignStart="@+id/imageView19"
-        android:layout_alignTop="@+id/imageView19"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="112dp"
-        android:background="@drawable/rectangle1"
-        android:text="подробнее"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/imageView21"
-        app:layout_constraintTop_toTopOf="@+id/imageView21" />
-
-
-    <!--navigation-->
-
-
-    <ImageView
-        android:id="@+id/IFB2"
-        android:layout_width="114dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView21"
-        app:layout_constraintTop_toTopOf="@+id/imageView21" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/recyclerForFeelings"
+        app:layout_constraintVertical_bias="0.294"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_quotes" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

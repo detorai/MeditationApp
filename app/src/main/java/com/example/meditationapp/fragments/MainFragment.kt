@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meditationapp.R
 import com.example.meditationapp.data.FeelingsAdapter
+import com.example.meditationapp.data.QuotesAdapter
 import com.example.meditationapp.databinding.MainBinding
 import com.example.meditationapp.network.RetrofitClient
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,41 +27,41 @@ import kotlinx.coroutines.launch
 class MainFragment : Fragment() {
 
     lateinit var binding: MainBinding
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: FeelingsAdapter
+    private lateinit var adapterF: FeelingsAdapter
+    private lateinit var adapterQ: QuotesAdapter
+    lateinit var recyclerViewF: RecyclerView
+    lateinit var recyclerViewQ: RecyclerView
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = MainBinding.inflate(layoutInflater, container, false)
         return binding.root
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val view = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         view.visibility = View.VISIBLE
 
-        binding.button.setOnClickListener{
-            Toast.makeText( requireContext(),"Переход по ссылке", Toast.LENGTH_SHORT).show()
-        }
-        binding.button2.setOnClickListener {
-            Toast.makeText(requireContext(), "Переход по ссылке", Toast.LENGTH_SHORT).show()
-        }
+
         binding.sendProfile.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_profileFragment2)
         }
         binding.btnMenu.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_menuFragment)
         }
-       /* binding.sendProfile.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_ProfileFragment)
-        }*/
-        recyclerView = binding.recyclerForFeelings
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewF = binding.recyclerForFeelings
+        recyclerViewF.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        recyclerViewQ = binding.recyclerForQuotes
+        recyclerViewQ.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         fetchDataAndUpdateUI()
     }
 
@@ -70,38 +71,19 @@ class MainFragment : Fragment() {
             val response = RetrofitClient.service.getFeelings()
             if (response.success) {
                 val feelings = response.data
-                adapter = FeelingsAdapter(feelings)
-                adapter.notifyDataSetChanged()
-                recyclerView.adapter = adapter
-            }
-            else {
-                Log.d("My Error","Ошибка при получении данных Feeling.")
-            }
-        }
-        GlobalScope.launch(Dispatchers.Main) {
-            try {
+                adapterF = FeelingsAdapter(feelings)
+                adapterF.notifyDataSetChanged()
+                recyclerViewF.adapter = adapterF
+
                 val response1 = RetrofitClient.service.getQuotes()
                 if (response1.success) {
-                    for (quote in response1.data) {
-                        when (quote.id) {
-                            1 -> {
-                                binding.HB1.text = quote.title
-                                binding.ST1.text = quote.description
-                                Picasso.get().load(quote.image).into(binding.IFB1)
-                            }
-
-                            2 -> {
-                                binding.HB2.text = quote.title
-                                binding.ST2.text = quote.description
-                                Picasso.get().load(quote.image).into(binding.IFB2)
-                            }
-                        }
-                    }
+                    val quotes = response1.data
+                    adapterQ = QuotesAdapter(quotes)
+                    adapterQ.notifyDataSetChanged()
+                    recyclerViewQ.adapter = adapterQ
                 } else {
-                    Log.d("My Error","Ошибка при получении данных Quotes.")
+                    Log.d("My Error", "Ошибка при получении данных Quotes.")
                 }
-            } catch (e: Exception) {
-                Log.d("My Error","Произошла ошибка: ${e.message}")
             }
         }
     }

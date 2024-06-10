@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
         app:cardBackgroundColor="#253334"
+        android:id="@+id/card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +25,17 @@
             android:layout_width="153dp"
             android:layout_height="115dp"
             android:src="@drawable/rectangle" />
+
+        <TextView
+            android:id="@+id/time_dwn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="23dp"
+            android:fontFamily="@font/alegreya"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:layout_gravity="bottom"/>
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

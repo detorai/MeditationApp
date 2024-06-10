@@ -1,4 +1,4 @@
-package com.example.meditationapp.fragments
+package com.example.meditationapp
 
 
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
                 R.id.mainFragment -> {
-                    Toast.makeText(baseContext, "Sample", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "main", Toast.LENGTH_SHORT).show()
                     navController.navigate(R.id.mainFragment)
                     true
                 }
@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
                     true
 
                 } R.id.profileFragment -> {
-                    Toast.makeText(baseContext, "listen", Toast.LENGTH_SHORT).show()
-                    navController.navigate(R.id.profileFragment)
+                    Toast.makeText(baseContext, "profile", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.profileFragment2)
                     true
                 }
                 else -> false
