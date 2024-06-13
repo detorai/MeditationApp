@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import android.provider.ContactsContract.Contacts.Photo
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
@@ -16,10 +17,10 @@ import com.example.meditationapp.R
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.Date
-
 class PhotoAdapter(private val context: Context, private val images: List<Uri>) : RecyclerView.Adapter<PhotoAdapter.ImageViewHolder>() {
     private val _images = images.toMutableList()
-     var onClick: (() -> Unit)? = null
+    var onClickButton: (() -> Unit)? = null
+    var onClickImage: (() -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_photos, parent, false)
         return ImageViewHolder(view)
@@ -29,15 +30,23 @@ class PhotoAdapter(private val context: Context, private val images: List<Uri>) 
         holder.bind(_images[position])
         if (position == _images.lastIndex){
             holder.imageView.setOnClickListener {
-                if (onClick != null){
-                    onClick!!()
+                if (onClickButton != null){
+                    onClickButton!!()
                 }
             }
 
         } else {
             holder.textView.text=getCurrentData()
         }
-
+                if (position != _images.lastIndex){
+                    holder.imageView.setOnClickListener {
+                        if (onClickImage != null){
+                            onClickImage!!()
+                        }
+                    }
+                } else {
+                    Log.d("Click!!", "Ошибка")
+                }
     }
 
     override fun getItemCount(): Int {
@@ -45,7 +54,7 @@ class PhotoAdapter(private val context: Context, private val images: List<Uri>) 
     }
 
     fun addItem(uri: Uri){
-       _images.add(0, uri)
+        _images.add(0, uri)
         notifyItemInserted(0)
     }
 
@@ -62,3 +71,4 @@ class PhotoAdapter(private val context: Context, private val images: List<Uri>) 
         }
     }
 }
+

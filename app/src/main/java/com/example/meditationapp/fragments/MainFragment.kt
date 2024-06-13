@@ -74,19 +74,21 @@ class MainFragment : Fragment() {
                 adapterF = FeelingsAdapter(feelings)
                 adapterF.notifyDataSetChanged()
                 recyclerViewF.adapter = adapterF
-
-                val response1 = RetrofitClient.service.getQuotes()
-                if (response1.success) {
-                    val quotes = response1.data
-                    adapterQ = QuotesAdapter(quotes)
-                    adapterQ.notifyDataSetChanged()
-                    recyclerViewQ.adapter = adapterQ
-                } else {
-                    Log.d("My Error", "Ошибка при получении данных Quotes.")
-                }
+            } else {
+                Log.d("My Error", "Ошибка при получении данных Feelings")
+            }
+            val response1 = RetrofitClient.service.getQuotes()
+            if (response1.success) {
+                val quotes = response1.data
+                adapterQ = QuotesAdapter(quotes)
+                adapterQ.notifyDataSetChanged()
+                recyclerViewQ.adapter = adapterQ
+            } else {
+                Log.d("My Error", "Ошибка при получении данных")
             }
         }
     }
 }
+
 
 

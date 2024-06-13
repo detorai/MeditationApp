@@ -2,6 +2,7 @@ package com.example.meditationapp.fragments
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -42,6 +43,7 @@ class ProfileFragment: Fragment() {
 
         recyclerView = binding.recyclerForPhoto
         recyclerView.layoutManager = GridLayoutManager (requireContext(), 2)
+
         val imageList: MutableList<Uri> = mutableListOf()
         imageList.add(Uri.parse("android.resource://"+ requireContext().packageName + "/" + R.drawable.rectangle))
         photoAdapter = PhotoAdapter(requireContext(), imageList)
@@ -51,8 +53,11 @@ class ProfileFragment: Fragment() {
 
             uris?.let { photoAdapter.addItem(it) }
         }
-        photoAdapter.onClick  = {
+        photoAdapter.onClickButton  = {
             pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+        }
+        photoAdapter.onClickImage = {
+
         }
 
     }

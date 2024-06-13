@@ -110,28 +110,39 @@
         android:id="@+id/recyclerForFeelings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="4dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378"
+        app:layout_constraintVertical_bias="0.335"
         tools:itemCount="1"
         tools:listitem="@layout/item_feelings" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerForQuotes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerForFeelings"
-        app:layout_constraintVertical_bias="0.294"
-        tools:itemCount="1"
-        tools:listitem="@layout/item_quotes" />
+        app:layout_constraintVertical_bias="0.058">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerForQuotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.452"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.969"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_quotes" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

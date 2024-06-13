@@ -72,5 +72,18 @@
         android:id="@+id/profileFragment2"
         android:name="com.example.meditationapp.fragments.ProfileFragment"
         android:label="profile"
-        tools:layout="@layout/profile" />
+        tools:layout="@layout/profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_photoFragment"
+            app:destination="@id/photoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.meditationapp.fragments.PhotoFragment"
+        android:label="photo"
+        tools:layout="@layout/photo" >
+        <action
+            android:id="@+id/action_photoFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+    </fragment>
 </navigation>
