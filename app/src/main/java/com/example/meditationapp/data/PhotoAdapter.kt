@@ -20,7 +20,20 @@ import java.util.Date
 class PhotoAdapter(private val context: Context, private val images: List<Uri>) : RecyclerView.Adapter<PhotoAdapter.ImageViewHolder>() {
     private val _images = images.toMutableList()
     var onClickButton: (() -> Unit)? = null
-    var onClickImage: (() -> Unit)? = null
+    var onClickImage: ((Uri) -> Unit)? = null
+
+    inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageView: ImageView = itemView.findViewById(R.id.photos)
+        val textView: TextView = itemView.findViewById(R.id.time_dwn)
+        fun bind(imageUri: Uri) {
+            imageView.setImageURI(imageUri)
+        }
+    }
+    @SuppressLint("SimpleDateFormat")
+    private fun getCurrentData(): String {
+        val sdf = SimpleDateFormat("HH:mm")
+        return sdf.format(Date())
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_photos, parent, false)
         return ImageViewHolder(view)
@@ -41,7 +54,7 @@ class PhotoAdapter(private val context: Context, private val images: List<Uri>) 
                 if (position != _images.lastIndex){
                     holder.imageView.setOnClickListener {
                         if (onClickImage != null){
-                            onClickImage!!()
+                            onClickImage!!(_images[position])
                         }
                     }
                 } else {
@@ -56,19 +69,6 @@ class PhotoAdapter(private val context: Context, private val images: List<Uri>) 
     fun addItem(uri: Uri){
         _images.add(0, uri)
         notifyItemInserted(0)
-    }
-
-    @SuppressLint("SimpleDateFormat")
-    private fun getCurrentData(): String {
-        val sdf = SimpleDateFormat("HH:mm")
-        return sdf.format(Date())
-    }
-    inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.photos)
-        val textView: TextView = itemView.findViewById(R.id.time_dwn)
-        fun bind(imageUri: Uri) {
-            imageView.setImageURI(imageUri)
-        }
     }
 }
 

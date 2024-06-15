@@ -5,14 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.meditationapp.R
+import com.example.meditationapp.ViewModel.PhotoViewModel
 import com.example.meditationapp.databinding.PhotoBinding
-import com.example.meditationapp.databinding.ProfileBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PhotoFragment : Fragment() {
 
     lateinit var binding: PhotoBinding
+    private val photoViewModel: PhotoViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,6 +29,11 @@ class PhotoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+       photoViewModel.uri.observe(viewLifecycleOwner) { uri ->
+           uri?.let { binding.openImage.setImageURI(uri)
+           }
+       }
        binding.deleteButton.setOnClickListener{
            findNavController().navigate(R.id.action_profileFragment2_to_photoFragment)
        }

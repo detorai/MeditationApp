@@ -1,29 +1,33 @@
 package com.example.meditationapp.fragments
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meditationapp.R
+import com.example.meditationapp.ViewModel.PhotoViewModel
 import com.example.meditationapp.data.PhotoAdapter
 import com.example.meditationapp.databinding.ProfileBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.net.URI
 
 class ProfileFragment: Fragment() {
     lateinit var binding: ProfileBinding
     private lateinit var recyclerView: RecyclerView
     lateinit var photoAdapter: PhotoAdapter
+    private val photoViewModel: PhotoViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,15 +54,14 @@ class ProfileFragment: Fragment() {
         recyclerView.adapter = photoAdapter
 
         val pickMultipleMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uris ->
-
             uris?.let { photoAdapter.addItem(it) }
         }
         photoAdapter.onClickButton  = {
             pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
         photoAdapter.onClickImage = {
-
+            findNavController().navigate(R.id.action_profileFragment2_to_photoFragment)
+            photoViewModel.uri.value = it
         }
-
     }
 }
