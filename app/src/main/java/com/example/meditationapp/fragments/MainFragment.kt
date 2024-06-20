@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meditationapp.R
+import com.example.meditationapp.ViewModel.LoginViewModel
 import com.example.meditationapp.data.FeelingsAdapter
 import com.example.meditationapp.data.QuotesAdapter
 import com.example.meditationapp.databinding.MainBinding
@@ -47,6 +50,13 @@ class MainFragment : Fragment() {
 
         val view = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view)
         view.visibility = View.VISIBLE
+
+
+        val loginViewModel: LoginViewModel by viewModels{LoginViewModel.Factory}
+        loginViewModel.userData.observe(viewLifecycleOwner){user ->
+            binding.Name.text = user.nickName
+            binding.sendProfile.setImageURI(user.avatar.toUri())
+        }
 
 
         binding.sendProfile.setOnClickListener {
