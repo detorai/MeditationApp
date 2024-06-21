@@ -1,13 +1,14 @@
 package com.example.meditationapp.ViewModel
 
+
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.meditationapp.MedApplication
 import com.example.meditationapp.data.AuthUser
 import com.example.meditationapp.data.ResponseWrapper
 import com.example.meditationapp.data.User
+import com.example.meditationapp.repository.MedApplication
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -25,15 +26,17 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
     fun authorize(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val response = repository.auth(AuthUser(email, password))
-            when (response) {
-                is ResponseWrapper.Success<*> -> {
-                    val user = response.data as? User
-                    _userData.value = user
-                    Log.d("User", "Prishel")
-                }
 
-                is ResponseWrapper.Error<*> -> {
-                    Log.e("Error", "Response fail")
+            response.collect{
+                when(it){
+                    is ResponseWrapper.Success -> {
+                        val user = it.data
+                        _userData.value = user
+                        Log.d("User", "Prishel")
+                    }
+                    is ResponseWrapper.Error ->{
+                        Log.e("User", "Error${it}")
+                    }
                 }
             }
         }

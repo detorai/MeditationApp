@@ -1,7 +1,7 @@
 package com.example.meditationapp.data
 
 data class User(
-    val id: Int,
+    val id: String,
     val email: String,
     val nickName: String,
     val avatar: String,
