@@ -1,58 +1,40 @@
 package com.example.meditationapp.ViewModel
 
 import android.app.Application
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
-import androidx.lifecycle.createSavedStateHandle
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
-import androidx.navigation.NavController
-import com.example.meditationapp.R
+import com.example.meditationapp.MedApplication
 import com.example.meditationapp.data.AuthUser
 import com.example.meditationapp.data.ResponseWrapper
 import com.example.meditationapp.data.User
-import com.example.meditationapp.repository.MainRepository
-import com.example.meditationapp.repository.MedApplication
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 
+class LoginViewModel(application: Application): AndroidViewModel(application) {
 
-class LoginViewModel(val mainRepository: MainRepository, val savedStateHandle: SavedStateHandle
-): ViewModel() {
+    private val repository by lazy {(application as MedApplication).repository}
 
-    val userData = MutableLiveData<User>()
+    private val _userData = MutableStateFlow<User?>(null)
+    val userData: StateFlow<User?> = _userData.asStateFlow()
 
     fun authorize(email: String, password: String) {
-        viewModelScope.launch {
-            val response = mainRepository.auth(AuthUser(email, password))
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = repository.auth(AuthUser(email, password))
             when (response) {
                 is ResponseWrapper.Success<*> -> {
                     val user = response.data as? User
-                    user?.let { userData.value = it }
+                    _userData.value = user
+                    Log.d("User", "Prishel")
                 }
 
                 is ResponseWrapper.Error<*> -> {
                     Log.e("Error", "Response fail")
                 }
-            }
-        }
-    }
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-                val savedStateHandle = createSavedStateHandle()
-                val myRepository = (this[APPLICATION_KEY] as MedApplication).repository
-                LoginViewModel(
-                    mainRepository = myRepository,
-                    savedStateHandle = savedStateHandle
-                )
             }
         }
     }

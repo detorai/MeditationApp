@@ -6,6 +6,7 @@ data class User(
     val nickName: String,
     val avatar: String,
     val token: String
+
 )
 
 data class AuthUser(

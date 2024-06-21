@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -34,7 +35,7 @@ class MainFragment : Fragment() {
     private lateinit var adapterQ: QuotesAdapter
     lateinit var recyclerViewF: RecyclerView
     lateinit var recyclerViewQ: RecyclerView
-
+    private val loginViewModel: LoginViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,11 +53,15 @@ class MainFragment : Fragment() {
         view.visibility = View.VISIBLE
 
 
-        val loginViewModel: LoginViewModel by viewModels{LoginViewModel.Factory}
-        loginViewModel.userData.observe(viewLifecycleOwner){user ->
-            binding.Name.text = user.nickName
-            binding.sendProfile.setImageURI(user.avatar.toUri())
-        }
+
+       lifecycleScope.launch {
+           loginViewModel.userData.collect{ user ->
+               if (user != null ){
+                   binding.Name.text = user.nickName
+                   binding.sendProfile.setImageURI(user.avatar.toUri())
+               }
+           }
+       }
 
 
         binding.sendProfile.setOnClickListener {

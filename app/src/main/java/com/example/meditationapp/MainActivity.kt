@@ -4,13 +4,16 @@ package com.example.meditationapp
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.example.meditationapp.R
+import com.example.meditationapp.ViewModel.LoginViewModel
 import com.example.meditationapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    val loginViewModel:LoginViewModel by viewModels()
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
